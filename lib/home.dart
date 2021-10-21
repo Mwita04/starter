@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'card1.dart';
 
 //Immplemented bottom nav tab bar item
 // 1
@@ -10,7 +11,20 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  static List<Widget> pages = <Widget>[
+    const Card1(),
+    Container(color: Colors.green),
+    Container(color: Colors.blue),
+  ];
+
   // TODO: Add state variables and functions
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +36,9 @@ class _HomeState extends State<Home> {
           style: Theme.of(context).textTheme.headline6,
         ),
       ),
-      // TODO: Show selected tab
-      body: Center(
-          child: Text('Let\'s get cooking 👩‍🍳',
-              // 3
-              style: Theme.of(context).textTheme.headline1)),
+
+      body: pages[_selectedIndex],
+
       // TODO: Add bottom navigation bar
       // 4
       bottomNavigationBar: BottomNavigationBar(
@@ -34,6 +46,10 @@ class _HomeState extends State<Home> {
         selectedItemColor: Theme.of(context).textSelectionTheme.selectionColor,
         // TODO: Set selected tab bar
         // 6
+        currentIndex: _selectedIndex,
+
+        onTap: _onItemTapped,
+
         items: <BottomNavigationBarItem>[
           const BottomNavigationBarItem(
             icon: Icon(Icons.card_giftcard),
