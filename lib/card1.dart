@@ -17,9 +17,7 @@ class Card1 extends StatelessWidget {
     // 3
     // ignore: prefer_const_constructors
     return Center(
-      // TODO: Card1 Decorate Container
       child: Container(
-        // TODO: Add a stack of text
         child: Stack(
           children: [
             // 8

@@ -24,7 +24,6 @@ class Card2 extends StatelessWidget {
         // 2
         child: Column(
           children: [
-            // TODO 1: add author information
             const AuthorCard(
               authorName: 'Mike Katz',
               title: 'Smoothie Connoisseur',
